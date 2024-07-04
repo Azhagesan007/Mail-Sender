@@ -12,9 +12,10 @@ t_qoutes = choice(data)
 print(t_qoutes)
 current = td.datetime.now()
 week = current.weekday()
+receiver_mail = "RECEIVER MAIL"
 if week == 6:
     with smtplib.SMTP("smtp.gmail.com") as sent_mail:
         # sent_mail = smtplib.SMTP("smtp.gmail.com")
         sent_mail.starttls()
         sent_mail.login(user=my_email, password=passwords)
-        sent_mail.sendmail(from_addr=my_email, to_addrs="azhagesany@gmail.com", msg=f"subject: Today's Qoutes.\n\n{t_qoutes}")
+        sent_mail.sendmail(from_addr=my_email, to_addrs=receiver_mail, msg=f"subject: Today's Qoutes.\n\n{t_qoutes}")
